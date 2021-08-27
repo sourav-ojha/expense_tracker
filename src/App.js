@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import Detail from "./components/Details/Detail";
+import Main from "./components/Main/Main";
+import { ExpenseTrackerContext } from "./context/context";
 
-function App() {
+const App = () => {
+  const {  balance, transaction } = useContext(
+    ExpenseTrackerContext
+  );
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Detail title="Income" amount="800" />
+      <Main total={balance}  />
+      <Detail title="Expense" amount="500" />
     </div>
   );
-}
+};
 
 export default App;
