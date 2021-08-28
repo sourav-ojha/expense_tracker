@@ -4,13 +4,13 @@ import Main from "./components/Main/Main";
 import { ExpenseTrackerContext } from "./context/context";
 
 const App = () => {
-  const {  balance, transaction } = useContext(
+  const { transaction } = useContext(
     ExpenseTrackerContext
   );
   return (
     <div className="App">
       <Detail title="Income" amount="800" />
-      <Main total={balance}  />
+      <Main />
       <Detail title="Expense" amount="500" />
     </div>
   );

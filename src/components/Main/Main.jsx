@@ -2,13 +2,12 @@ import React, { useContext, useState } from "react";
 import styles from "./Main.module.css";
 import { ExpenseTrackerContext } from "../../context/context";
 import { expenseCategories, incomeCategories } from "./categories";
-
+import DeleteBtn from "../../assets/delete-button.svg";
 import { v4 as uuidv4 } from "uuid";
 
-const Main = ({ total }) => {
-  const { addTransaction, transactions, deleteTransaction } = useContext(
-    ExpenseTrackerContext
-  );
+const Main = () => {
+  const { balance, addTransaction, transactions, deleteTransaction } =
+    useContext(ExpenseTrackerContext);
   var today = new Date();
   const dateValue =
     today.getFullYear() +
@@ -63,7 +62,7 @@ const Main = ({ total }) => {
     <div className={styles.box}>
       <div className={styles.card}>
         <div className={styles.card_title}>Expense Tracker</div>
-        <div className={styles.net_amt}>Net Amount Rs: {total}</div>
+        <div className={styles.net_amt}>Net Amount Rs: {balance}</div>
         <hr />
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.input_row}>
@@ -127,17 +126,18 @@ const Main = ({ total }) => {
                   : styles.expense_transaction
               }`}
             >
-              <div className={styles.trans_category}>{t.category}</div>
-              <div className={styles.trans_details}>
-                <span>Rs {t.amount} -</span>
-                <span>- {t.date}</span>
+              <div>
+                <div className={styles.trans_category}>{t.category}</div>
+                <div className={styles.trans_details}>
+                  <span>Rs {t.amount} -</span>
+                  <span>- {t.date}</span>
+                </div>
               </div>
-              <div
+              <img
+                src={DeleteBtn}
                 className={styles.trans_delete}
                 onClick={() => deleteTransaction(t.id)}
-              >
-                Delete
-              </div>
+              />
             </div>
           ))}
         </div>

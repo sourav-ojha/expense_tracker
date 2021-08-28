@@ -5,11 +5,11 @@ body,
   margin: 0;
 }
 
-.App{
-    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.1)), url(./assets/bg.jpg);
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.App {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+    url(./assets/bg.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-

@@ -3,7 +3,7 @@ import styles from "./Detail.module.css";
 import { Doughnut } from "react-chartjs-2";
 import useTransactions from "../../useTransaction";
 
-const Detail = ({ title, amount, graph }) => {
+const Detail = ({ title }) => {
   const { total, chartData } = useTransactions(title);
   return (
     <div className={styles.box}>
